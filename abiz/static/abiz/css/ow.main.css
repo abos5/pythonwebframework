@@ -1,0 +1,43 @@
+
+/*v3.3.1 using*/
+
+div#content {
+    /*margin-top: 57px;*/
+}
+.navbar {
+    border: 5px;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-brand{
+    color:#ddd;
+}
+.navbar-default .navbar-brand:hover {
+    color: #fff;
+}
+
+.navbar .nav > li > a,.navbar .nav > li,.navbar .brand
+{
+    text-shadow:none;
+    color:white;
+}
+
+/*2.3.2 not migrated yet.*/
+html,body
+{
+    height: 100%;
+    background: #fcfcfc;
+}
+
+
+/*common ends*/
+.navbar .nav li a
+{
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+
+/* global iframe*/
+iframe {border:none;min-height: 600px;width:100%;height:auto;}
+/* global iframe*/

@@ -1,0 +1,32 @@
+manage-django.py
+manage-tornado.py
+django-bootstrap/
+    urls.py
+    wsgi.py
+    settings.py
+tornado-bootstrap/
+    handlers.py
+# django-apps
+# tornado-apps
+abiz  # a biz oriented CMS
+    APIs/  # normal function api wrapper for django|tornado
+        ./article/id/comment/add
+        ./article/id/comment/update
+    categories/
+
+    interfaces/
+
+    basic/
+        models.py
+            .article
+            .comment
+            .content
+
+
+
+
+
+
+
+
+

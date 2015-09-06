@@ -1,0 +1,23 @@
+{% extends "abiz/list_layout.html" %}
+{% block main_header %}{% endblock main_header %}
+{% block content %}
+<div class="list-group">
+{% for article in articles %}
+  <a href="{% url "article:detail" pk=article.article_id %}" class="list-group-item">
+    <h4 class="list-group-item-heading">
+        {{ article.article_id }}
+        {{ article.title }}
+    </h4>
+    <pre class="list-group-item-text" >
+{{ article.articlebody.content|slice:"0:120" }}
+    </pre>
+  </a>
+{% endfor %}
+</div>
+{% endblock content%}
+
+# 翻页的基本链接
+
+{% block previous_url %}{% url "article:list" page=page_obj.previous_page_number %}{% endblock previous_url %}
+
+{% block next_url %}{% url "article:list" page=page_obj.next_page_number %}{% endblock next_url %}
