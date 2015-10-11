@@ -38,14 +38,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ArticleCategory',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('cate_id', models.AutoField(serialize=False, primary_key=True)),
                 ('cate_name', models.CharField(max_length=63)),
                 ('cate_description', models.CharField(max_length=127, null=True)),
                 ('cate_parent', models.ForeignKey(related_name=b'cate_children', db_constraint=False, default=1, to='abiz.ArticleCategory', null=True)),
             ],
             options={
                 'abstract': False,
-                'db_table': '%(app_label)s_article_category',
             },
             bases=(models.Model,),
         ),

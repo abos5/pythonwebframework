@@ -13,4 +13,6 @@ urlpatterns = patterns('',
     url(r'^a/', include('abiz.urls', namespace='article')),
     url(r'^__debug__/', include(debug_toolbar.urls)),
     url(r'^(?P<page>\d{0,11})$', ArticleListView.as_view(), ),
+    url(r'^storage/', include('storage.urls', namespace='storage')),
+    # url(r'^accounts/', include('registration.backends.default.urls')),
 )

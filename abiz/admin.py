@@ -1,10 +1,10 @@
 from django.contrib import admin
 from abiz.models import Article, CatedArticle
-from abiz.models import ArticleBody, ArticleCategory
+from abiz.models import ArticleBody, ArticleCategory, ImageOfArticle, Image
 import abox.admin
 
 
-class ArticleCategoryInline(admin.TabularInline):
+class ArticleCategoryInline(abox.admin.AboxTabularInline):
     model = CatedArticle
     extra = 1
     max_num = 2
@@ -21,6 +21,12 @@ class ArticleBodyInline(abox.admin.AboxTabularInline):
     model = ArticleBody
     extra = 1
     min_num = 1
+
+
+class ImageOfArticleInline(abox.admin.AboxTabularInline):
+    model = ImageOfArticle
+    extra = 1
+    max_num = 1
 
 
 @admin.register(Article)
@@ -44,8 +50,12 @@ class ArticleAdmin(abox.admin.AboxModelAdmin):
     inlines = [
         ArticleCategoryInline,
         ArticleBodyInline,
+        ImageOfArticleInline,
     ]
 
 
+@admin.register(Image)
+class ImageAdmin(abox.admin.AboxModelAdmin):
+    pass
 
 # Register your models here.

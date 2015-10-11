@@ -1,6 +1,37 @@
 from django.db import models
 
 
+class Post(models.Model):
+
+    title = models.CharField(max_length=127, blank=False)
+    create_datetime = models.DateTimeField(
+        auto_now_add=True,
+        null=True,
+    )
+    last_modifed_datetime = models.DateTimeField(
+        auto_now=True,
+        null=True
+    )
+    publish_datetime = models.DateTimeField(
+        null=True,
+    )
+    sort_datetime = models.DateTimeField(
+        null=True,
+    )
+
+    class Meta:
+        abstract = True
+
+    @property
+    def next_pk(self):
+        return self.pk + 1
+
+    @property
+    def previous_pk(self):
+        previous_pk = self.pk - 1
+        return previous_pk if previous_pk > 0 else 1
+
+
 class Category(models.Model):
     """
     General layout of category tables.
@@ -32,8 +63,7 @@ class HtmlTextField(models.TextField):
     declared to be used for formfield override
     """
 
-    class Meta:
-        abstract = True
+    pass
 
 
 

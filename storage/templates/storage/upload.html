@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>foo</title>
+</head>
+<body>
+<form method='post' action="{% url 'storage:upload' %}" enctype="multipart/form-data" >
+{% csrf_token %}
+<table>
+    {{form}}
+</table>
+<input type="submit"  value='Submit' />
+</form>
+</body>
+</html>

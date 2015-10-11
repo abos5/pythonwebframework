@@ -8,16 +8,6 @@ from django.utils.translation import ugettext as _
 from abox import logger
 
 
-NO_FORM_CONTROL_WIDGET_TYPES = [
-    'adminradioselect',
-    'checkboxselectmultiple',
-    'readonlypasswordhashwidget',
-    'adminfilewidget',
-    'ueditor',
-    'aboxsplitdatetime',
-]
-
-
 class AboxSplitDateTime(widgets.AdminSplitDateTime):
     """
     A SplitDateTime Widget that save a line break

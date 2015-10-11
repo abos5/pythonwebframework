@@ -1,12 +1,26 @@
+# Other way of implementating formfield widget
+"""
+class SomeForm(models.ModelAdmin or models.TabularInline):
+    \"""
+    Should be implemented by other form
+    \"""
+    class Meta:
+        widgets = {
+            'field_a': SomeWidget,
+            'field_b': SomeOtherWidget,
+        }
+"""
 from django.contrib import admin
 from django.db import models
 from abox import widgets
 import abox.models
 
 
-# widgets for over write should use a class
+# globally modify default widgets
 FORMFIELD_OVERRIDES = {
     models.DateTimeField: {
+
+        # widgets for over write should use a class
         'widget': widgets.AboxSplitDateTime,
     },
     abox.models.HtmlTextField: {
@@ -18,8 +32,6 @@ FORMFIELD_OVERRIDES = {
 class AboxModelAdmin(admin.ModelAdmin):
     """basic model admin for custom projects
     """
-
-    # globally modify default widgets
 
     formfield_overrides = FORMFIELD_OVERRIDES
 

@@ -24,16 +24,18 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-
+AUTH_USER_MODEL = 'auth.User'
+ACCOUNT_ACTIVATION_DAYS = 7
 ALLOWED_HOSTS = ['*', ]
 # INTERNAL_IPS = ['10.0.2.2', '127.0.0.1']
-
+FILE_UPLOAD_HANDLERS = ('django.core.files.uploadhandler.TemporaryFileUploadHandler', )
 # Application definition
 
 INSTALLED_APPS = (
     'abiz',
     'cate',
     'abox',
+    'storage',
     'bootstrap_admin',
     'django.contrib.admindocs',
     'django.contrib.admin',
@@ -43,6 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -94,9 +97,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 # STATIC_URL = '/static/'
-STATIC_URL = 'http://static.abos5.com/af/'
+STATIC_DOMAIN = 'http://static.abos5.com'
+STATIC_URL = '%s/%s' % (STATIC_DOMAIN, 'af/')
 STATIC_ROOT = '/data/web/static.abos5.com/af/'
-
+UPLOAD_ROOT = 'storage/upload'
 
 LOGGING = {
     'version': 1,
