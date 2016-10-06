@@ -44,13 +44,13 @@ class Ueditor(Widget):
             value = ''
         final_attrs = self.build_attrs(attrs, name=name)
         content = u"<textarea {0} >{1}</textarea>"
+        # use double braces to output ueditor configuration
+        # should be fixed if bug found.
         scripts = u"""\
         <script type="text/javascript">
         'use strict';
         (function($){{
         $(function(){{
-            // use double braces to output ueditor configuration
-            // should be fixed if bug found.
             var editor = new UE.ui.Editor({%(ueditor)s});
             editor.render('%(id)s');
         }});

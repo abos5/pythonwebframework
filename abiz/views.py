@@ -1,5 +1,5 @@
 from abiz.models import Article
-
+from django.http import response
 from django.views import generic
 
 
@@ -13,5 +13,8 @@ class ArticleDetailView(generic.DetailView):
     model = Article
     context_object_name = 'article'
 
+
+def HelloWorld(foo):
+    return response.HttpResponse('Hello, world')
 
 # Create your views here.

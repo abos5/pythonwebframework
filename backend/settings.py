@@ -27,13 +27,19 @@ TEMPLATE_DEBUG = True
 AUTH_USER_MODEL = 'auth.User'
 ACCOUNT_ACTIVATION_DAYS = 7
 ALLOWED_HOSTS = ['*', ]
-# INTERNAL_IPS = ['10.0.2.2', '127.0.0.1']
-FILE_UPLOAD_HANDLERS = ('django.core.files.uploadhandler.TemporaryFileUploadHandler', )
+INTERNAL_IPS = [
+    '10.0.2.2',
+    # '127.0.0.1',
+    # '10.163.174.134',
+    # '223.211.79.150',
+]
+FILE_UPLOAD_HANDLERS = (
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler', )
 # Application definition
 
 INSTALLED_APPS = (
     'abiz',
-    'cate',
+    # 'cate',
     'abox',
     'storage',
     'bootstrap_admin',
@@ -72,9 +78,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'abostutor',
-        'HOST': 'db2.host',
+        'HOST': 'mysql.i.abos.space',
         'PORT': '3306',
-        'USER': 'root',
+        'USER': 'abos',
         'PASSWORD': '3a7d30f2de',
     }
 }
@@ -97,9 +103,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 # STATIC_URL = '/static/'
-STATIC_DOMAIN = 'http://static.abos5.com'
+STATIC_DOMAIN = 'http://static.abos.space'
 STATIC_URL = '%s/%s' % (STATIC_DOMAIN, 'af/')
-STATIC_ROOT = '/data/web/static.abos5.com/af/'
+STATIC_ROOT = '/www/abos.space/static.abos.space/af/'
 UPLOAD_ROOT = 'storage/upload'
 
 LOGGING = {
